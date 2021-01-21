@@ -1,0 +1,30 @@
+{
+  "name": "shoproom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "config": "^3.3.1",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.5",
+    "correios-brasil": "^2.0.4",
+    "cors": "^2.8.5",
+    "express-session": "^1.17.1",
+    "joi": "^17.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.9.29",
+    "mongoose-type-email": "^1.0.12",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.12.10",
+    "nodemon": "^2.0.4"
+  }
+}

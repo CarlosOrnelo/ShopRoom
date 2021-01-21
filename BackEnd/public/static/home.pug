@@ -1,0 +1,41 @@
+doctype html
+
+html
+
+    head
+        link(rel="stylesheet" type="text/css" href="/static/style.css")
+
+    body
+        script(type='text/javascript' src='/static/app.js')
+        nav 
+        .navBar
+            a(href='http://localhost:3000/') Home
+            a(href='http://localhost:3000/products') Products
+            
+            .dropdown
+                button(type='button' class='dropbtn') Categories
+                    i.fa-caret-down
+                .dropdown-content
+                    each n in categories ? categories : [0]
+                        a(href=`http://localhost:3000/categories/${n._id}`) !{n.name}
+            
+            a(href='http://localhost:3000/cart') Shopping Cart
+            
+            if !user
+                a(href='http://localhost:3000/login') Login
+            
+            .loginForm
+                if user
+                    button(type='button' class='dropBtnUser') Olá !{user}
+                        i.fa-caret-down-user
+                    .dropdown-content-user
+                        a(href=`http://localhost:3000/account`) My Account
+                        a(href='http://localhost:3000/login') Logout
+    
+
+    
+
+                        
+        
+
+         

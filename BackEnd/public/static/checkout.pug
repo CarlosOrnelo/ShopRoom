@@ -1,0 +1,25 @@
+include home
+
+p
+
+.checkoutProducts
+    each i in products ? products : [0]
+        .productCheckoutDetails
+            img(src=JSON.parse(i).image width="200" height="200")
+            p !{JSON.parse(i).name}
+            p !{JSON.parse(i).quantidade}
+            - var preco = JSON.parse(i).quantidade * JSON.parse(i).price
+            p R$ !{preco}
+
+
+if user
+    form(action='/payment' method='POST')
+        p
+        p Valor Total: R$ !{valor}
+        input(type='text' name='address' value='address')
+        input(type='submit' value='Finish')
+        input(type='hidden' name='products' value=products)
+        input(type='hidden' name='valorTotal' value=valor)
+else
+    p You have to log in first!
+

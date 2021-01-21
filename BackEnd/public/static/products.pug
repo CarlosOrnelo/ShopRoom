@@ -1,0 +1,16 @@
+include home
+
+.productsTitle
+    h2 Products
+
+
+.products
+    each i in products ? products : [0]
+        - var id = i._id
+        ul
+            img(src=i.image alt=name width="200" height="200" onclick='goToProduct("' + id + '")')
+            p !{i.name}
+            p R$ !{i.price}
+            p !{i.stock}
+
+

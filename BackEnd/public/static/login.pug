@@ -1,0 +1,36 @@
+include home
+
+p
+
+.loginField
+    if !user
+        form(action='/' method='POST')
+            p
+            input(type='placeholder' name='name' id='name' value='username')
+            p
+            input(type='placeholder' name='password' id='password' value='password')
+            p
+            input(type='submit' value='Login')
+
+        p Cadastre-se
+
+        form(action='/api/users' method='POST')
+            p
+            input(type='placeholder' id='registerName' name='name' value='Name')
+            p
+            input(type='placeholder' id='emailName' name='email' value='Email')
+            p
+            input(type='placeholder' id='passwordName' name='password' value='Password')
+            p
+            input(type='submit' value='Register')
+
+    else
+        p Already logged in!
+
+        p Do you want it to log out?
+
+        .logoutField
+            form(action='/' method='POST')
+                input(type='submit' value='Logout')
+                input(type='hidden' name='logout' value='logout')
+

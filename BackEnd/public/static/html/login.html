@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
+    <script type="text/javascript" src="/static/app.js"></script>
+    <nav> </nav>
+    <div class="navBar"><a href="http://localhost:3000/">Home</a><a href="http://localhost:3000/products">Products</a>
+      <div class="dropdown">
+        <button class="dropbtn" type="button">Categories<i class="fa-caret-down"></i></button>
+        <div class="dropdown-content"><a href="http://localhost:3000/categories/undefined"></a>
+        </div>
+      </div><a href="http://localhost:3000/cart">Shopping Cart</a><a href="http://localhost:3000/login">Login</a>
+      <div class="loginForm">
+      </div>
+    </div>
+  </body>
+</html>
+<p></p>
+<div class="loginField">
+  <form action="/" method="POST">
+    <p></p>
+    <input type="placeholder" name="name" id="name" value="username">
+    <p></p>
+    <input type="placeholder" name="password" id="password" value="password">
+    <p></p>
+    <input type="submit" value="Login">
+  </form>
+  <p>Cadastre-se</p>
+  <form action="/api/users" method="POST">
+    <p></p>
+    <input type="placeholder" id="registerName" name="name" value="Name">
+    <p></p>
+    <input type="placeholder" id="emailName" name="email" value="Email">
+    <p></p>
+    <input type="placeholder" id="passwordName" name="password" value="Password">
+    <p></p>
+    <input type="submit" value="Register">
+  </form>
+</div>

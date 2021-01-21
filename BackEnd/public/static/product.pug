@@ -1,0 +1,35 @@
+
+include home
+
+
+title Shop Room
+
+
+.productImage
+    - var imagem = product.image
+    - var id = product._id
+    - var dimensions = product.dimensions[0]
+    - var productDetails = JSON.stringify(product)
+
+    img(src=imagem heigth=250 width=250)
+    .productDetails
+        p !{product.name}
+        p R$!{product.price}
+
+        p#sedexName
+        #prazoFreteSedex
+        #valorFreteSedex
+
+        input(type='text' id='cep' class='cep' value='Digite o CEP') 
+        input(type='submit' method='POST' class='calculoFrete' value='Calcular Frete' onclick='calculoFrete(' + dimensions.weight + ', ' + dimensions.format + ', ' + dimensions.length + ', ' + dimensions.height + ', ' + dimensions.width + ', ' + dimensions.diameter + ')')
+
+        p
+        if product.stock > 0
+            form(action='/cart' method='POST')
+                p Quantidade: 
+                    input(type='text' id='quantidade' name='quantidade' class='quantidade' value=parseInt(1))
+                input(type='submit' class='comprar' id='comprarButton' value='Add to Shopping Cart')
+                input(type='hidden' name='buyValue' value=productDetails)
+        else
+            .noStock
+                p Product Unavaliable
