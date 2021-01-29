@@ -1,0 +1,51 @@
+body {
+    background-color: white;
+    margin: 0px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #000;
+    font-family: arial;
+    a {
+        float: left;
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        text-align: center;
+        &:hover {
+            color: hotpink;
+            transition: 1s;
+        }
+    };
+    .dropdown {
+        float: left;
+        overflow: hidden;
+        &:hover .dropdown-content {
+            display: block;
+        }
+    }
+    .dropbtn {
+        color: white;
+        background-color: inherit;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        margin: 0;
+        padding: 8px;
+        font-size: 16px;
+        &:hover {
+            color: hotpink;
+            transition: 1s;
+        }
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #000;
+        a {
+            display: block;
+            float: none;
+        }
+    }
+}

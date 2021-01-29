@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PageContext = React.createContext();
-PageContext.displayName = 'PageContext';
+const NavContext = React.createContext();
+NavContext.displayName = 'NavContext';
 
-export default PageContext;
+export default NavContext;

@@ -6,7 +6,7 @@ const cors = require('cors');
 
 app.use(cors());
 require('./startup/routes')(app);
-const connection = rgitequire('./startup/database')();
+const connection = require('./startup/database')();
 
 
 app.engine('pug', require('pug').__express)

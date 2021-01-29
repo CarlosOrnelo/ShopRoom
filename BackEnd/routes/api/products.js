@@ -11,6 +11,13 @@ products.get('/', async(req, res) => {
     res.send(product)
 });
 
+products.get('/:id', async(req, res) => {
+    
+    const product = await Product.findById(req.params.id);
+
+    res.send(product)
+});
+
 
 products.post('/', async(req, res) => {
     

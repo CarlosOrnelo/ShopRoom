@@ -1,6 +1,7 @@
 const express = require('express');
 const categories = express.Router();
 const {Category, validateCategory} = require('../../models/category');
+const { Product } = require('../../models/product');
 const auth = require('../../middleware/auth');
 
 categories.get('/', async(req, res) => {
@@ -10,6 +11,12 @@ categories.get('/', async(req, res) => {
     res.send(category);
 })
 
+categories.post('/:id', async(req, res) => {
+
+    const products = await Product.find({"category._id": req.params.id, stock: {$gt: 0}});
+    return res.json(products)
+
+})
 
 categories.post('/', auth, async(req, res) => {
     

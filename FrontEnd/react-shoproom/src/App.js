@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './context/home';
-import Products from './context/products';
+import Home from './routes/home';
+import Products from './routes/products';
+import Product from './routes/product';
+import Categories from './routes/categories';
+
 
 class App extends Component {
   state = {}
@@ -10,6 +12,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
+          <Route path='/categories/:id' component={Categories} />
+          <Route path='/products/:id' component={Product} />
           <Route path='/products' component={Products} />
           <Route path='/' component={Home} />
         </Switch>
