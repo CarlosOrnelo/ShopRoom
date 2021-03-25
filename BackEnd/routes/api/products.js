@@ -3,10 +3,9 @@ const products = express.Router();
 const { Product } = require('../../models/product');
 const { Category } = require('../../models/category');
 
-
 products.get('/', async(req, res) => {
     
-    const product = await Product.find();
+    const product = await Product.find({stock: { $gt: 0 }});
 
     res.send(product)
 });

@@ -11,10 +11,11 @@ const orderSchema = new mongoose.Schema({
         _id: {type: String},
         name: {type: String},
         price: {type: Number},
+        stock: {type: Number},
         image: {type: String},
         category: {type: Object},
-        dimensions: {type: Object},
-        quantidade: {type: Number}
+        dimensions: {type: Array},
+        quantity: {type: Number}
     }],
     date: {type: Date, default: Date.now},
     cost: {type: Number, required: true},

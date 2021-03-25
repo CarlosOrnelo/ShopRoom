@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models/user');
 const bcrypt = require('bcrypt');
+const _ = require('lodash');
 
 module.exports = async function(req, res, next) {
 
@@ -13,15 +14,16 @@ module.exports = async function(req, res, next) {
 
     
     const user = await User.findOne({name: req.body.name});
-    if(!user) res.status(401).send('Invalid user or password!');
+    if(!user) return res.send('Invalid user or password!');
 
     const hashed = await bcrypt.compare(req.body.password, user.password);
-    if(!hashed) res.send('Invalid user or password!');
-
+    if(!hashed) return res.send('Invalid user or password!');
+    
     const token = user.generateAuthToken();
+    const userSliced = _.pick(user, ['_id', 'name', 'email']);
 
-    req.session.authToken = token;
-    req.session.user = user.name;
+    res.header('x-auth-token', token);
+    res.header('x-auth-user', JSON.stringify(userSliced));
     
     next();
 }

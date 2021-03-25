@@ -20,15 +20,16 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model('Product', productSchema);
 
 async function updateStock(products) {
+
     var newProducts = [];
     for await (var i of products) {
 
         // Find product in DB
-        const product = await Product.findById(JSON.parse(i)._id);
+        const product = await Product.findById(i._id);
         
         // IF quantity is greater than stock, dont process the order and update the stock product
         try{
-            if(JSON.parse(i).quantidade > product.stock) {
+            if(i.quantity > product.stock) {
                 newProducts = [];
                 break;
             }}
@@ -37,14 +38,14 @@ async function updateStock(products) {
             return err
         }
 
-        product.stock = product.stock - JSON.parse(i).quantidade
+        product.stock = product.stock - i.quantity
         newProducts.push(product);
     }
 
     newProducts.forEach(async element => {
         await element.save();
     });
-    
+   
     return newProducts;
 }
 
